@@ -4,7 +4,7 @@ A simple bash script that reads a file containing Beaglebone Black's pins names 
 
 How to use:
 
-Create a text file say... pin_modex.txt and write down all pins and its modes. Like:
+Create a text file say... pins_modes.txt and write down all pins and its modes. Like:
 
 ```
 P9_24 can to communicate with motor's drive
