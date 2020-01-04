@@ -8,7 +8,7 @@ Create a text file say... pin_modex.txt and write down all pins and its modes. L
 
 ```
 P9_24 can to communicate with motor's drive
-p8_40 pruo controled by PRU1 (or PRU0?)
+p8_40 pruo controlled by PRU1 (or PRU0?)
 p830 pruin
 P932 in input for button SW3
 ```
