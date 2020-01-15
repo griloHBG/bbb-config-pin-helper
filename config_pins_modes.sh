@@ -25,12 +25,14 @@ then
 
 	            # filtered_line is now submitted to the minimal formatting. If it is ill formed, filtered_line will be empty
 	        	filtered_line=$(echo $filtered_line | grep -P '^(P|p)\d_?\d\d\s+\w+')
+				line_comment=$(echo $line | sed -E "s/^#?(P|p)[0-9]_[0-9]{2}\s+\w+\s+//g")
 
 	        	# echo line number
-				echo 'Line' $line_counter ': '
+				echo -n 'Line' $line_counter ': '
 
 				if [[ ${line:0:1} == \#* ]]
 				then 
+					echo " COMMENTED!"
 					echo 'Comment: '$line
 		            # it's a comment so just increment line_counter
 		            line_counter=$(($line_counter+1))
@@ -38,6 +40,7 @@ then
 		        	# warn if the line is wrong formatted
 		        	if [ -z "$filtered_line" ]
 		        	then
+						echo ""
 		        		echo $line
 		        		echo "Wrong format. Should be like this:"
 		        		echo "P9_24 can"
@@ -45,6 +48,9 @@ then
 					    echo "p830 pruin"
 					    echo "P932 in"
 		        	else
+
+						echo " $line_comment"
+		        		
 		        		# otherwise, try to do the config
 		            	# word_counter is just a variable to differentiate between first and second word of a line
 		            	word_counter=0
